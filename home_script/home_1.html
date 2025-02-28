@@ -81,7 +81,7 @@
         renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true, precision: 'mediump' });
         renderer.setPixelRatio(window.devicePixelRatio);
         renderer.setSize(window.innerWidth, window.innerHeight);
-        renderer.setClearColor( 0x000000, 1 );
+        renderer.setClearColor( 0x000000, 0 );
 
         clock = new THREE.Clock();
         document.body.appendChild(renderer.domElement);
