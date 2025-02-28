@@ -52,10 +52,10 @@ h1.logo a {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 70vw; /* Set the width as needed */
-  height: 70vw; /* Set the height to match the width for a square */
-  max-width: 1200px; /* Set a max-width if necessary */
-  max-height: 1200px; /* Set a max-height if necessary */
+  width: 80vw; /* Set the width as needed */
+  height: 80vw; /* Set the height to match the width for a square */
+  max-width: 1600px; /* Set a max-width if necessary */
+  max-height: 1600px; /* Set a max-height if necessary */
 }
 
 .iframe-container {
