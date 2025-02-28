@@ -7,7 +7,7 @@
     <style type="text/css">
       body {
         font-family: Monospace;
-        background-color: #000;
+        background-color: transparent;
         margin: 0;
         padding: 0;
         overflow: hidden;
@@ -24,7 +24,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: #000;
+        background-color: transparent;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -78,10 +78,10 @@
         scene = new THREE.Scene();
         // scene.fog = new THREE.Fog(0x000000, 300, 400);
 
-        renderer = new THREE.WebGLRenderer({ antialias: true, precision: 'mediump' });
+        renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true, precision: 'mediump' });
         renderer.setPixelRatio(window.devicePixelRatio);
         renderer.setSize(window.innerWidth, window.innerHeight);
-        renderer.setClearColor( 0x000000, 1 );
+        renderer.setClearColor( 0x000000, 0 );
 
         clock = new THREE.Clock();
         document.body.appendChild(renderer.domElement);
