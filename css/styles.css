@@ -85,17 +85,18 @@ h1.logo a {
   display: block;
   color: #333;
   text-decoration: none;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   transform-origin: top right;
   font-size: 25px;
 }
 
 .works-container {
   position: fixed;
-  top: 50%;
+  top: 45%;
   left: 50%;
   transform: translate(-50%, -60%);
   visibility: hidden;
+
 }
 
 .projects {
@@ -106,8 +107,8 @@ h1.logo a {
   transition: background-color 0.15s ease-in-out;
   background-color: #ff9fc7;
   border: 2px solid black;
-  width: 120vw;
-  margin: 1vh;
+  width: 150vw;
+  margin: -2vh;
 }
 
 .projects:hover {
@@ -363,8 +364,12 @@ h1.logo a {
   }
 
   .text-links a {
-    font-size: 20px;
+    font-size: 17px;
   }
+
+  .works-container {
+  top: 40%;
+}
 
   .swiper-zoom-container>canvas,
   .swiper-zoom-container>img,
@@ -383,5 +388,9 @@ h1.logo a {
     max-width: 600px; /* Set a max-width if necessary */
     max-height: 600px; /* Set a max-height if necessary */
   }
+
+.projects {
+  margin: -4vh;
+}
    
 }
