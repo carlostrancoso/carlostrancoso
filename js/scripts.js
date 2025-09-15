@@ -78,7 +78,7 @@
         if (projectData) {
           
           overlayContainer.style.display = 'flex';
-          document.body.style.overflow = 'hidden';
+          document.body.style.overflow = '';
     
           slideshow.innerHTML = ''; // Clear existing content
     
@@ -125,6 +125,13 @@
               slideshow.appendChild(projectTitle);
               slideshow.appendChild(projectDescription);
             }
+
+            if (projectData.videoEmbed) {
+  const videoContainer = document.createElement('div');
+  videoContainer.className = 'project-video';
+  videoContainer.innerHTML = projectData.videoEmbed;
+  slideshow.appendChild(videoContainer);
+}
           } else {
             // Series data
             if (projectData.title && projectData.description) {
@@ -171,6 +178,12 @@
               seriesContainer.appendChild(seriesTitle);
               seriesContainer.appendChild(seriesDescription);
     
+              if (series.videoEmbed) {
+    const videoContainer = document.createElement('div');
+    videoContainer.className = 'project-video';
+    videoContainer.innerHTML = series.videoEmbed;
+    seriesContainer.appendChild(videoContainer);
+  }
               slideshow.appendChild(seriesContainer);
               const horizontalRule = document.createElement('hr');
               slideshow.appendChild(horizontalRule);  
@@ -201,12 +214,26 @@
       
     function getProjectData(projectId) {
       const projects = {
+    project6: {  
+      title: 'Urbanarium',
+      description: 'Urbanarium is the result of the Sustentar artistic residency and was exhibited at the Bienal de Fotografia do Porto 2025. Developed in Porto, Portugal, the project explores the interplay between humans and nature in the contemporary city, reflecting on our role within natural systems and our capacity for transformation in the context of the Anthropocene. Based on the Porto BioLab initiative — a future living laboratory of urban ecology — the project examines regeneration, rebalancing, and the potential of human action to coexist harmoniously with nature. The project approaches themes of pedagogy, leisure, food, habitat, philosophy, urbanism, and ecology, revealing the city as both a stage and an active participant in this dialogue. The circular interface designed for the project fosters interaction, observation, and engagement, allowing participants to explore potential and enact transformation.',
+      slideshow: (() => {
+        let slides = '';
+        for (let i = 1; i <= 15; i++) { // ajusta consoante o número de imagens disponíveis
+          slides += `<div class="swiper-slide"><div class="swiper-zoom-container"><img src="./content/jpg/U_${i.toString().padStart(2, '0')}.jpg" alt="U_${i.toString().padStart(2, '0')}.jpg"></div></div>`;
+        }
+        return slides;
+      })(),
+
+      videoEmbed: `<iframe width="800" height="450" src="https://www.youtube.com/embed/07-5AWkG8Og?si=PnWnkAvDT0n3QvUu" title="Urbanarium video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`,
+    
+    },
       project1: {
         title: 'How to build a telescope',
         description: '‘How to Build a Telescope’ is about technology in a rural context, reflecting on the topics of curiosity and the need for invention. It also explores the complexity of science and the laws of physics, showing how they are closely related to the everyday experience of being alive. The narrative is constructed around a found book and set in a small and isolated village where technology can find its maximum expression of freedom. The project addresses the importance of reshaping the future of technology against mass production, proposing a reconnection between user, creator, and creations.The photos were taken between 2018 and 2023 and the title, directly translated from the found book, embodies the concept of a specific type of technology (a telescope) that is originally designed to be used outside noisy urban areas. The idea of building an amateur telescope evokes the juxtaposition between cosmos and mundane life. The project explores language by intentionally erasing written text from the scanned books, transforming it into an essay on the importance of visual communication in human connections.',
         slideshow: (() => {
           let slides = '';
-          for (let i = 1; i <= 22; i++) {
+          for (let i = 1; i <= 27; i++) {
             slides += `<div class="swiper-slide"><div class="swiper-zoom-container"><img src="./content/jpg/HTBAT_${i.toString().padStart(2, '0')}.jpg" alt="HTBAT_${i.toString().padStart(2, '0')}.jpg"></div></div>`;
           }
           return slides;
@@ -236,7 +263,9 @@
                 slides += `<div class="swiper-slide"><div class="swiper-zoom-container"><img src="./content/jpg/ROT_ANN_${i.toString().padStart(2, '0')}.jpg" alt="ROT_ANN_${i.toString().padStart(2, '0')}.jpg"></div></div>`;
               }
               return slides;
-            })()
+            })(),
+  videoEmbed: `<iframe width="560" height="315" src="https://www.youtube.com/embed/lZwMS1oBZYc?start=55" title="ANN video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+
           },
           {
             title: 'Backup',
