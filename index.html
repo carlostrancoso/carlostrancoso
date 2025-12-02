@@ -5,7 +5,409 @@
   <title>Carlos Trancoso</title>
   <!-- Add the Swiper CSS link here -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="css/styles.css">
+   <!-- Estilos embutidos (conteúdo de styles.css) -->
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.5;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  animation: backgroundTransition 60s infinite alternate;
+}
+
+hr {
+  border: none;
+  border-top: 2px solid #000000;
+  margin: 50px;
+}
+
+@keyframes backgroundTransition {
+  0% {
+    background-color: #f9be13;
+  }
+  50% {
+    background-color: #bff09e;
+  }
+  75% {
+    background-color: #45a6d8;
+  }
+  100% {
+    background-color: #f9be13;
+  }
+}
+
+h1.logo {
+  position: fixed;
+  top: 5%;
+  left: 4%;
+  transform-origin: top left;
+  font-size: 25px;
+  color: #333;
+  transition: transform 0.5s ease;
+}
+
+h1.logo a {
+  cursor: default;
+}
+
+.background-iframes {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 50px; /* Adjust the gap as needed */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80vw; /* Set the width as needed */
+  height: 80vw; /* Set the height to match the width for a square */
+  max-width: 900px; /* Set a max-width if necessary */
+  max-height: 900px; /* Set a max-height if necessary */
+}
+
+.iframe-container {
+  width: 100%; /* Adjusted to 100% to cover the entire width of the parent */
+  height: 100%; /* Set to 50% to maintain the aspect ratio */
+  position: relative;
+  overflow: hidden;
+}
+
+.iframe-container iframe {
+  width: 100%;
+  height: 100%; /* Set to 100% to cover the entire height of the parent */
+  border: none;
+   border-radius: 50%; 
+}
+
+
+.text-links {
+  position: fixed;
+  top: 40px;
+  right: 50px;
+  text-align: center;
+  z-index: 2;
+}
+
+.text-links a {
+  display: block;
+  color: #333;
+  text-decoration: none;
+  margin-bottom: 8px;
+  transform-origin: top right;
+  font-size: 25px;
+}
+
+.works-container {
+  position: fixed;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+  visibility: hidden;
+
+}
+
+.projects {
+  position: relative;
+  display: inline-block;
+  color: #333;
+  text-decoration: none;
+  transition: background-color 0.15s ease-in-out;
+  background-color: #ff9fc7;
+  border: 2px solid black;
+  width: 150vw;
+  margin: -2vh;
+}
+
+.projects:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.collaborations {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.collaborations:hover {
+  background-color: #ff9fc7;
+}
+
+.overlay-container {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  z-index: 999;
+  overflow-x: hidden;
+}
+
+.overlay-content {
+  position: relative;
+  width: 80vw;
+  height: 95vh;
+  background-color: white;
+  border: 2px solid #000;
+  text-align: center;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.close-button {
+  width: 30px;
+  height: 30px;
+  background-color: black;
+  color: white;
+  font-size: 30px;
+  font-weight: 50;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: fixed;
+  border: none;
+  top: 0px;
+  right: 0px;
+  z-index: 999;
+}
+
+.project-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+  margin: 50px;
+  text-align: left;
+}
+
+.project-description {
+  margin: 50px;
+  font-size: 20px;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.slideshow {
+  margin: 40px;
+}
+
+.swiper-zoom-container>canvas,
+.swiper-zoom-container>img,
+.swiper-zoom-container>svg {
+  max-height: 600px;
+}
+
+.swiper-container {
+  position: relative;
+}
+
+:root {
+  --swiper-navigation-color: rgb(192, 192, 192);
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  color: black;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: black;
+}
+
+.logo {
+  cursor: pointer;
+}
+
+.about-content {
+  color: #161616;
+  display: none;
+  margin-top: 30vh;
+  margin-left: 5%;
+  overflow-y: auto;
+  max-height: calc(70vh - 30px);
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-container {
+  margin-right: 40px;
+}
+
+.image-container img {
+  max-width: 500px;
+}
+
+.text-container {
+  max-width: 70vw;
+}
+
+.text-container h5 {
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 2;
+}
+
+.text-container h6 {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.5;
+  cursor: default;
+}
+
+.text-container a {
+  font-weight: 700;
+  color: black;
+  text-decoration: none;
+}
+
+.text-container a:hover {
+  background-color: yellow;
+}
+
+.overlay-content::-webkit-scrollbar {
+  width: 3px;
+}
+
+.overlay-content::-webkit-scrollbar-thumb {
+  background-color: black;
+}
+
+.overlay-content::-webkit-scrollbar-button {
+  display: none;
+}
+
+.overlay-content::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.about-content::-webkit-scrollbar {
+  width: 4px;
+}
+
+.about-content::-webkit-scrollbar-thumb {
+  background-color: black;
+}
+
+.about-content::-webkit-scrollbar-button {
+  display: none;
+}
+
+.about-content::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+@media screen and (max-width: 1000px) {
+/*   .iframe-container {
+    width: 90vw;
+    height: 90vw;
+    max-width: none;
+    max-height: none;
+  } */
+
+  h1.logo {
+    top: 2%;
+    left: 5%;
+    font-size: 35px;
+  }
+
+  .text-links {
+    top: 50px;
+    right: 70px;
+  }
+
+  .about-content {
+    margin-top: 20vh;
+    max-height: calc(80vh - 250px);
+  }
+
+  .text-container h6 {
+    max-width: 500px;
+    font-weight: 400;
+    line-height: 1.2;
+    cursor: default;
+  }
+
+  .image-container {
+    margin-right: 20px;
+  }
+
+  .swiper-zoom-container>canvas,
+  .swiper-zoom-container>img,
+  .swiper-zoom-container>svg {
+    max-height: 700px;
+  }
+
+  .overlay-content {
+    width: 92vw;
+    height: 70vh;
+    border: 4px solid #000;
+  }
+
+  .projects {
+  margin: 1vh;
+}
+
+  .project-title {
+    font-size: 40px;
+  }
+
+  .project-description {
+    font-size: 25px;
+  }
+
+  .close-button {
+    width: 60px;
+    height: 60px;
+    font-size: 60px;
+  }
+
+  .swiper-pagination-fraction {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-height: 750px) {
+  h1.logo {
+    top: 1%;
+    left: 5%;
+    font-size: 25px;
+  }
+
+  .text-links a {
+    font-size: 17px;
+  }
+
+  .works-container {
+  top: 40%;
+}
+
+  .swiper-zoom-container>canvas,
+  .swiper-zoom-container>img,
+  .swiper-zoom-container>svg {
+    max-width: 400px;
+  }
+
+  .image-container img {
+    max-width: 400px;
+  }
+  
+  .background-iframes {
+    gap: 20px; /* Adjust the gap as needed */
+    width: 50vw; /* Set the width as needed */
+    height: 50vw; /* Set the height to match the width for a square */
+    max-width: 600px; /* Set a max-width if necessary */
+    max-height: 600px; /* Set a max-height if necessary */
+  }
+
+.projects {
+  margin: -4vh;
+}
+   
+}
+ </style>
 </head>
 <body>
   <div class="background-iframes">
@@ -40,9 +442,6 @@
   </div>
 
   <div class="about-content" style="display: none;">
-<!--     <div class="image-container">
-      <img src="./content/jpg/Bio.jpg" alt="Bio Photo">
-    </div> -->
     <div class="text-container">
       <strong>Carlos Trancoso</strong>(b. 1989) is a Portuguese visual artist that works and lives in Porto. He uses the photographic gaze as a critical tool to understand how the human being relates to technology. His work aims to challenge established patterns of interaction relating to the creation of images in contemporary society. Although he mainly uses fictional approaches, his work incorporates a documental photography language with the expanded practice of creating cameraless images, mixed media and computer generated images.<br>
         He is a member of <a href="https://www.instagram.com/bardacoletivo/">Barda</a> colective and part of <a href="https://www.futures-photography.com/artists/carlos-trancoso">Futures Photography</a> platform as a selected artist by <a href="https://ciclo.art/en">Ci.Clo</a> and has recently exhibited at festivals such as <a href="https://www.adaf.gr/">Athens Digital Art Festival</a> in Greece, <a href="https://photoalicante.com/">Photoalicante</a> in Spain, <a href="https://backlight.fi/">Backlight</a> in Finland, <a href="https://photopenup.com/">Photo Open Up</a> in Italy and <a href="https://bienal25.bienalfotografiaporto.pt/en">Bienal de Fotografia do Porto</a>, <a href="https://encontrosdaimagem.com/2025/pt/">Encontros da Imagem</a>, <a href="https://bienaldamaia23.pt/">Bienal da Maia</a> and<a href="https://fest-amarante.com/"> f/est Amarante</a> in Portugal as well as some galleries like <a href="https://miragalerias.net/">Espaço Mira</a>, <a href="https://www.instagram.com/_portoaoporto">Atelier Galeria FFAC</a>, <a href="https://www.instagram.com/na_dentro/">Galeria Dentro</a>, <a href="https://www.acert.pt/acert/">Galeria ACERT</a>, <a href="https://casa-capitao.com/">Casa Capitão</a>, <a href="https://www.galeriagracabrandao.pt/">Galeria Graça Brandão</a> and <a href="https://www.artbooks.xyz/">a ilha XYZ</a> in Portugal and <a href="https://el-local.online/">El Local</a> in Madrid..
@@ -51,41 +450,41 @@
         <br>
         <h6><strong>Exhibitions and Awards</strong></h6>
         <h5>
-        2025 ‘How to build a telescope’ photobook published by XYZ Books. <br>
-        2025 ‘A casa de falar baixinho exhitibion’ w/ Barda collective, Encontros da Imagem 2025, Guimarães, Portugal. <br>
-        2025 ‘Urbanarium’ exhibition integrated in Bienal de Fotografia do Porto 2025, Porto, Portugal. <br>
-        2025 ‘Membrana’ exhibition w/ Barda collective in Espaço Mira Gallery, Porto, Portugal. <br>
-        2025 ‘INTERGALACTICA’ Artistic Residency in XYZ Books, Lisbon, Portugal. <br>
-        2024 Winner of ‘INTERGALACTICA’ open call with ‘How to build a telescope’. <br>  
-        2024 Curator of ‘EX-ISTO’ exhibition in Arganil and Góis, Portugal. <br>    
-        2024 ‘SUSTENTAR’ artistic residency with ‘Ci.Clo’ and Porto BioLab, Portugal. <br>
-        2024 Curator of ‘Busca pela identidade’ exhibition in Soito, Portugal. <br>
-        2024 Curator of ‘Visões da Serra’ exhibition in Cepos, Portugal. <br>
-        2024 ‘PopPorn’ in collaboration with Marco Duarte, presented in “A liberdade ainda não chega” exhibition in Espaço Mira, Porto, Portugal. <br>
-        2024 ‘Narrow Slice’ featured in STET exhibition, Galeria Graça Brandão, Lisboa, Portugal. <br>
-        2023 ‘How to build a telescope’ part of the exhibition “Too much of a good thing” in a ilha, XYZ Books, Lisboa, Portugal. <br>
-        2023 ‘Junta Seca’ exhibited in “Pequenos Formatos” exhibition in Atelier Galeria FFAC, Porto, Portugal.<br>
-        2023 ‘ANN’, ‘Backup’, ‘Persona’ and ‘Non-causes’ series from ‘Rise of trivial’ exhibited in Bienal da Maia 2023, Maia, Portugal<br>
-        2023 ‘Inscription’ and ‘New Madia’ series from ‘Rise of trivial’ exhibited as the result of the Artistic Residency in Bienal da Maia 2023, Maia, Portugal<br>
-        2023 ‘Glad I spent it with you’ selected for “Structures” collection of NFT’s from Unveil.<br>
-        2023 ‘PopPorn’ in collaboration with Marco Duarte, presented in “Pantalla Completa” exhibition in El Local, Madrid, Spain.<br>
-        2023 ‘Membrana’ exhibition w/ Barda collective in ACERT Gallery, Tondela, Portugal.<br>
-        2023 ‘Persona’ exhibited in Athens Digital Arts Festival 2023, Athens, Greece.<br>
-        2023 ‘Narrow Slice’ featured online in L’Essenzial Studio Journal.<br>
-        2022 ‘FUTURES talents’ selected artist by ‘Ci.CLO - Bienal de Fotografia do Porto’.<br>
-        2022 ‘How to build a telescope’ part of the exhibition “Io continuo a stupirmi” in Photo Open Up 2022, Padova, Italy.<br>
-        2022 ‘Persona’ exhibition, Land Gallery, Porto, Portugal.<br>
-        2022 ‘Junta seca’, exhibition with Ivan da Silva, Galeria Dentro, Porto, Portugal.<br>
-        2022 ‘Persona’ exhibited in “Remapear as margens” in f/est Amarante 2022, Amarante, Portugal.<br>
-        2021 ‘Vieses’ exhibition with Ivan da Silva for Bienal da Maia 2021, Maia, Portugal.<br>
-        2020 ‘Antiversário’ exhibition with Ivan da Silva for Phlorysta 6th edition, Lisbon, Portugal.<br>
-        2020 ‘ANN’ exhibited in “Related Realities” in Backlight Photo Festival 2020, Tampere, Finland.<br>
-        2020 ‘Vistas que estão para’, virtual exhibition in collaboration with Ivan da Silva, Galeria Dentro, Porto, Portugal.<br>
-        2020 ‘Rise of trivial’ exhibited in “Después del documento” in Photoalicante 2020, Alicante, Spain.<br>
-        2019 ‘Narrow Slice’ published in scopio VIEWFINDER magazine.<br>
-        2019 ‘Glad I spent it with you’ exhibited in CCCedofeita, Porto, Portugal.<br>
-        2019 Honorable Mention with ‘Narrow Slice’, “Photobook Contest Crossing Borders Shifting Boundaries: Territory”, Scopio.<br>
-        2018 ‘Narrow Slice’ exhibited in IPCI, Porto, Portugal.<br>
+        2025 'How to build a telescope' photobook published by XYZ Books. <br>
+        2025 'A casa de falar baixinho exhitibion' w/ Barda collective, Encontros da Imagem 2025, Guimarães, Portugal. <br>
+        2025 'Urbanarium' exhibition integrated in Bienal de Fotografia do Porto 2025, Porto, Portugal. <br>
+        2025 'Membrana' exhibition w/ Barda collective in Espaço Mira Gallery, Porto, Portugal. <br>
+        2025 'INTERGALACTICA' Artistic Residency in XYZ Books, Lisbon, Portugal. <br>
+        2024 Winner of 'INTERGALACTICA' open call with 'How to build a telescope'. <br>  
+        2024 Curator of 'EX-ISTO' exhibition in Arganil and Góis, Portugal. <br>    
+        2024 'SUSTENTAR' artistic residency with 'Ci.Clo' and Porto BioLab, Portugal. <br>
+        2024 Curator of 'Busca pela identidade' exhibition in Soito, Portugal. <br>
+        2024 Curator of 'Visões da Serra' exhibition in Cepos, Portugal. <br>
+        2024 'PopPorn' in collaboration with Marco Duarte, presented in "A liberdade ainda não chega" exhibition in Espaço Mira, Porto, Portugal. <br>
+        2024 'Narrow Slice' featured in STET exhibition, Galeria Graça Brandão, Lisboa, Portugal. <br>
+        2023 'How to build a telescope' part of the exhibition "Too much of a good thing" in a ilha, XYZ Books, Lisboa, Portugal. <br>
+        2023 'Junta Seca' exhibited in "Pequenos Formatos" exhibition in Atelier Galeria FFAC, Porto, Portugal.<br>
+        2023 'ANN', 'Backup', 'Persona' and 'Non-causes' series from 'Rise of trivial' exhibited in Bienal da Maia 2023, Maia, Portugal<br>
+        2023 'Inscription' and 'New Madia' series from 'Rise of trivial' exhibited as the result of the Artistic Residency in Bienal da Maia 2023, Maia, Portugal<br>
+        2023 'Glad I spent it with you' selected for "Structures" collection of NFT's from Unveil.<br>
+        2023 'PopPorn' in collaboration with Marco Duarte, presented in "Pantalla Completa" exhibition in El Local, Madrid, Spain.<br>
+        2023 'Membrana' exhibition w/ Barda collective in ACERT Gallery, Tondela, Portugal.<br>
+        2023 'Persona' exhibited in Athens Digital Arts Festival 2023, Athens, Greece.<br>
+        2023 'Narrow Slice' featured online in L'Essenzial Studio Journal.<br>
+        2022 'FUTURES talents' selected artist by 'Ci.CLO - Bienal de Fotografia do Porto'.<br>
+        2022 'How to build a telescope' part of the exhibition "Io continuo a stupirmi" in Photo Open Up 2022, Padova, Italy.<br>
+        2022 'Persona' exhibition, Land Gallery, Porto, Portugal.<br>
+        2022 'Junta seca', exhibition with Ivan da Silva, Galeria Dentro, Porto, Portugal.<br>
+        2022 'Persona' exhibited in "Remapear as margens" in f/est Amarante 2022, Amarante, Portugal.<br>
+        2021 'Vieses' exhibition with Ivan da Silva for Bienal da Maia 2021, Maia, Portugal.<br>
+        2020 'Antiversário' exhibition with Ivan da Silva for Phlorysta 6th edition, Lisbon, Portugal.<br>
+        2020 'ANN' exhibited in "Related Realities" in Backlight Photo Festival 2020, Tampere, Finland.<br>
+        2020 'Vistas que estão para', virtual exhibition in collaboration with Ivan da Silva, Galeria Dentro, Porto, Portugal.<br>
+        2020 'Rise of trivial' exhibited in "Después del documento" in Photoalicante 2020, Alicante, Spain.<br>
+        2019 'Narrow Slice' published in scopio VIEWFINDER magazine.<br>
+        2019 'Glad I spent it with you' exhibited in CCCedofeita, Porto, Portugal.<br>
+        2019 Honorable Mention with 'Narrow Slice', "Photobook Contest Crossing Borders Shifting Boundaries: Territory", Scopio.<br>
+        2018 'Narrow Slice' exhibited in IPCI, Porto, Portugal.<br>
       </h5>
       <br>
       <h6>Feel free to say hello:
@@ -106,7 +505,506 @@
   <!-- Add the Swiper JS script here -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
   <script src="./home_script/lib/dat.gui.min.js"></script>
-  <script src="./js/scripts.js"></script>
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const worksLink = document.querySelector('.works-link');
+    const aboutLink = document.querySelector('.about-link');
+    const nameText = document.querySelector('.name.logo');
+    const projectLinks = document.querySelectorAll('.projects');
+    const projectsContainer = document.querySelector('.works-container');
+    const backgroundIframe = document.querySelector('.background-iframes');
+    const overlayContainer = document.querySelector('.overlay-container');
+    const closeButton = document.querySelector('.close-button');
+    const slideshow = document.querySelector('.slideshow');
+    const aboutContent = document.querySelector('.about-content');
+
+    // Estado da aplicação
+    let currentState = 'home'; // 'home', 'works', 'about', 'project'
+    let currentProjectId = null;
+    let projectLinksVisible = false;
+
+    // Função para atualizar estado e histórico
+    function updateState(state, projectId = null) {
+      currentState = state;
+      currentProjectId = projectId;
+      
+      // Criar URL com hash
+      let hash = '';
+      switch(state) {
+        case 'works':
+          hash = 'works';
+          break;
+        case 'about':
+          hash = 'about';
+          break;
+        case 'project':
+          hash = 'project=' + projectId;
+          break;
+        default:
+          hash = '';
+      }
+      
+      // Atualizar URL sem recarregar a página
+      const newUrl = window.location.pathname + (hash ? '#' + hash : '');
+      history.pushState({ state: state, projectId: projectId }, '', newUrl);
+      
+      // Atualizar visualização
+      updateView();
+    }
+
+    // Função para atualizar a visualização baseada no estado
+    function updateView() {
+      // Resetar tudo primeiro
+      projectsContainer.style.visibility = 'hidden';
+      overlayContainer.style.display = 'none';
+      aboutContent.style.display = 'none';
+      document.body.style.overflow = '';
+      projectLinksVisible = false;
+      
+      // Remover iframes se estiverem na página
+      if (backgroundIframe.parentNode) {
+        backgroundIframe.parentNode.removeChild(backgroundIframe);
+      }
+      
+      // Aplicar estado atual
+      switch(currentState) {
+        case 'home':
+          // Adicionar iframes de volta
+          document.body.appendChild(backgroundIframe);
+          backgroundIframe.style.display = 'grid';
+          projectLinksVisible = false;
+          break;
+          
+        case 'works':
+          projectsContainer.style.visibility = 'visible';
+          projectLinksVisible = true;
+          break;
+          
+        case 'about':
+          aboutContent.style.display = 'flex';
+          break;
+          
+        case 'project':
+          if (currentProjectId) {
+            showProject(currentProjectId);
+          }
+          break;
+      }
+    }
+
+    // Função para mostrar projeto
+    function showProject(projectId) {
+      const projectData = getProjectData(projectId);
+      
+      if (!projectData) return;
+      
+      projectsContainer.style.visibility = 'visible';
+      projectLinksVisible = true;
+      overlayContainer.style.display = 'flex';
+      aboutContent.style.display = 'none';
+      document.body.style.overflow = '';
+      
+      slideshow.innerHTML = ''; // Clear existing content
+      
+      if (!projectData.series) {
+        // Display single project data
+        const swiperContainer = document.createElement('div');
+        swiperContainer.className = 'swiper-container';
+        
+        // Criar slideshow HTML baseado no projeto
+        let slideshowHTML = '<div class="swiper-wrapper">';
+        
+        if (projectId === 'project6') {
+          // Urbanarium - 15 imagens
+          for (let i = 1; i <= 15; i++) {
+            const num = i.toString().padStart(2, '0');
+            slideshowHTML += '<div class="swiper-slide"><div class="swiper-zoom-container"><img src="./content/jpg/U_' + num + '.jpg" alt="U_' + num + '.jpg"></div></div>';
+          }
+        } else if (projectId === 'project1') {
+          // How to build a telescope - 15 imagens
+          for (let i = 1; i <= 15; i++) {
+            const num = i.toString().padStart(2, '0');
+            slideshowHTML += '<div class="swiper-slide"><div class="swiper-zoom-container"><img src="./content/jpg/HTBAT_' + num + '.jpg" alt="HTBAT_' + num + '.jpg"></div></div>';
+          }
+        } else if (projectId === 'project3') {
+          // Glad I spent it with you - 8 imagens
+          for (let i = 1; i <= 8; i++) {
+            const num = i.toString().padStart(2, '0');
+            slideshowHTML += '<div class="swiper-slide"><div class="swiper-zoom-container"><img src="./content/jpg/GISIWY_' + num + '.jpg" alt="GISIWY_' + num + '.jpg"></div></div>';
+          }
+        } else if (projectId === 'project4') {
+          // Narrow Slice - 12 imagens
+          for (let i = 1; i <= 12; i++) {
+            const num = i.toString().padStart(2, '0');
+            slideshowHTML += '<div class="swiper-slide"><div class="swiper-zoom-container"><img src="./content/jpg/NS_' + num + '.jpg" alt="NS_' + num + '.jpg"></div></div>';
+          }
+        }
+        
+        slideshowHTML += '</div><div class="swiper-button-next"></div><div class="swiper-button-prev"></div><div class="swiper-pagination"></div>';
+        
+        swiperContainer.innerHTML = slideshowHTML;
+        slideshow.appendChild(swiperContainer);
+        
+        // Adicionar título e descrição
+        if (projectData.title && projectData.description) {
+          const projectTitleElement = document.createElement('h2');
+          projectTitleElement.className = 'project-title';
+          projectTitleElement.textContent = projectData.title;
+          
+          const projectDescriptionElement = document.createElement('p');
+          projectDescriptionElement.className = 'project-description';
+          projectDescriptionElement.innerHTML = projectData.description;
+          
+          slideshow.appendChild(projectTitleElement);
+          slideshow.appendChild(projectDescriptionElement);
+        }
+        
+        // Adicionar vídeo se existir
+        if (projectData.videoEmbed && projectId === 'project6') {
+          const videoContainer = document.createElement('div');
+          videoContainer.className = 'project-video';
+          videoContainer.innerHTML = '<iframe width="800" height="450" src="https://www.youtube.com/embed/07-5AWkG8Og?si=PnWnkAvDT0n3QvUu" title="Urbanarium video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+          slideshow.appendChild(videoContainer);
+        }
+        
+        // Inicializar Swiper
+        new Swiper(swiperContainer, {
+          zoom: true,
+          zoom: {
+            maxRatio: 2,
+            minRatio: 1,
+          },
+          pagination: {
+            el: ".swiper-pagination",
+            type: "bullets",
+          },
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+        });
+      } else {
+        // Para projetos com séries (project2 e project5)
+        if (projectData.title && projectData.description) {
+          const projectSeriesTitle = document.createElement('h2');
+          projectSeriesTitle.className = 'project-title';
+          projectSeriesTitle.textContent = projectData.title;
+          
+          const projectSeriesDescription = document.createElement('p');
+          projectSeriesDescription.className = 'project-description';
+          projectSeriesDescription.innerHTML = projectData.description; 
+          slideshow.appendChild(projectSeriesTitle);
+          slideshow.appendChild(projectSeriesDescription);
+          
+          const horizontalRule = document.createElement('hr');
+          slideshow.appendChild(horizontalRule);  
+          const breakSpace = document.createElement('br');
+          slideshow.appendChild(breakSpace); 
+        }
+        
+        // Processar cada série
+        projectData.series.forEach((series) => {
+          const seriesContainer = document.createElement('div');
+          seriesContainer.className = 'series-container';
+          
+          const swiperContainer = document.createElement('div');
+          swiperContainer.className = 'swiper-container';
+          
+          // Criar slideshow para a série
+          let seriesSlideshowHTML = '<div class="swiper-wrapper">';
+          
+          if (projectId === 'project2') {
+            // Rise of Trivial - diferentes séries
+            if (series.title === 'Persona') {
+              for (let i = 1; i <= 10; i++) {
+                const num = i.toString().padStart(2, '0');
+                seriesSlideshowHTML += '<div class="swiper-slide"><div class="swiper-zoom-container"><img src="./content/jpg/ROT_P_' + num + '.jpg" alt="ROT_P_' + num + '.jpg"></div></div>';
+              }
+            } else if (series.title === 'ANN') {
+              for (let i = 1; i <= 5; i++) {
+                const num = i.toString().padStart(2, '0');
+                seriesSlideshowHTML += '<div class="swiper-slide"><div class="swiper-zoom-container"><img src="./content/jpg/ROT_ANN_' + num + '.jpg" alt="ROT_ANN_' + num + '.jpg"></div></div>';
+              }
+            } else if (series.title === 'Backup') {
+              for (let i = 1; i <= 7; i++) {
+                const num = i.toString().padStart(2, '0');
+                seriesSlideshowHTML += '<div class="swiper-slide"><div class="swiper-zoom-container"><img src="./content/jpg/ROT_B_' + num + '.jpg" alt="ROT_B_' + num + '.jpg"></div></div>';
+              }
+            } else if (series.title === 'Non Causes') {
+              for (let i = 1; i <= 7; i++) {
+                const num = i.toString().padStart(2, '0');
+                seriesSlideshowHTML += '<div class="swiper-slide"><div class="swiper-zoom-container"><img src="./content/jpg/ROT_NC_' + num + '.jpg" alt="ROT_NC_' + num + '.jpg"></div></div>';
+              }
+            } else if (series.title === 'Inscription') {
+              for (let i = 1; i <= 7; i++) {
+                const num = i.toString().padStart(2, '0');
+                seriesSlideshowHTML += '<div class="swiper-slide"><div class="swiper-zoom-container"><img src="./content/jpg/ROT_I_' + num + '.jpg" alt="ROT_I_' + num + '.jpg"></div></div>';
+              }
+            }
+          } else if (projectId === 'project5') {
+            // Collaborations
+            if (series.title === 'Membrana') {
+              for (let i = 1; i <= 11; i++) {
+                const num = i.toString().padStart(2, '0');
+                seriesSlideshowHTML += '<div class="swiper-slide"><div class="swiper-zoom-container"><img src="./content/jpg/M_' + num + '.jpg" alt="M_' + num + '.jpg"></div></div>';
+              }
+            } else if (series.title === 'PopPorn') {
+              for (let i = 1; i <= 5; i++) {
+                const num = i.toString().padStart(2, '0');
+                seriesSlideshowHTML += '<div class="swiper-slide"><div class="swiper-zoom-container"><img src="./content/jpg/PP_' + num + '.png" alt="PP_' + num + '.png"></div></div>';
+              }
+            } else if (series.title === 'Junta Seca') {
+              for (let i = 1; i <= 7; i++) {
+                const num = i.toString().padStart(2, '0');
+                seriesSlideshowHTML += '<div class="swiper-slide"><div class="swiper-zoom-container"><img src="./content/jpg/JS_' + num + '.jpg" alt="JS_' + num + '.jpg"></div></div>';
+              }
+            }
+          }
+          
+          seriesSlideshowHTML += '</div><div class="swiper-button-next"></div><div class="swiper-button-prev"></div><div class="swiper-pagination"></div>';
+          
+          swiperContainer.innerHTML = seriesSlideshowHTML;
+          seriesContainer.appendChild(swiperContainer);
+          
+          const seriesTitle = document.createElement('h2');
+          seriesTitle.className = 'project-title';
+          seriesTitle.textContent = series.title;
+          
+          const seriesDescription = document.createElement('p');
+          seriesDescription.className = 'project-description';
+          seriesDescription.innerHTML = series.description;
+          
+          seriesContainer.appendChild(seriesTitle);
+          seriesContainer.appendChild(seriesDescription);
+          
+          // Adicionar vídeo para ANN
+          if (series.videoEmbed && series.title === 'ANN') {
+            const videoContainer = document.createElement('div');
+            videoContainer.className = 'project-video';
+            videoContainer.innerHTML = '<iframe width="560" height="315" src="https://www.youtube.com/embed/lZwMS1oBZYc?start=55" title="ANN video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+            seriesContainer.appendChild(videoContainer);
+          }
+          
+          slideshow.appendChild(seriesContainer);
+          const horizontalRule = document.createElement('hr');
+          slideshow.appendChild(horizontalRule);  
+          const breakSpace = document.createElement('br');
+          slideshow.appendChild(breakSpace); 
+          
+          // Inicializar Swiper para esta série
+          new Swiper(swiperContainer, {
+            zoom: true,
+            zoom: {
+              maxRatio: 2,
+              minRatio: 1,
+              toggle: true,
+            },
+            pagination: {
+              el: ".swiper-pagination",
+              type: "bullets",
+            },
+            navigation: {
+              nextEl: ".swiper-button-next",
+              prevEl: ".swiper-button-prev",
+            },
+          });
+        });
+      }
+    }
+
+    // Event Listeners atualizados
+    worksLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      updateState('works');
+    });
+
+    aboutLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      updateState('about');
+    });
+
+    nameText.addEventListener('click', (e) => {
+      e.preventDefault();
+      updateState('home');
+    });
+
+    closeButton.addEventListener('click', (e) => {
+      e.preventDefault();
+      updateState('works');
+    });
+
+    projectLinks.forEach((link) => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const projectId = link.id;
+        updateState('project', projectId);
+      });
+    });
+
+    // Manipular botão "voltar" do navegador
+    window.addEventListener('popstate', (event) => {
+      if (event.state) {
+        currentState = event.state.state;
+        currentProjectId = event.state.projectId;
+      } else {
+        // Sem estado no histórico, verificar hash da URL
+        const hash = window.location.hash.substring(1);
+        if (hash === 'works') {
+          currentState = 'works';
+        } else if (hash === 'about') {
+          currentState = 'about';
+        } else if (hash.startsWith('project=')) {
+          currentState = 'project';
+          currentProjectId = hash.split('=')[1];
+        } else {
+          currentState = 'home';
+        }
+      }
+      updateView();
+    });
+
+    // Inicializar estado baseado na URL atual
+    function initFromURL() {
+      const hash = window.location.hash.substring(1);
+      
+      if (hash === 'works') {
+        currentState = 'works';
+      } else if (hash === 'about') {
+        currentState = 'about';
+      } else if (hash.startsWith('project=')) {
+        currentState = 'project';
+        currentProjectId = hash.split('=')[1];
+      } else {
+        currentState = 'home';
+      }
+      
+      updateView();
+    }
+
+    // Inicializar
+    initFromURL();
+    
+    // Adicionar estado inicial ao histórico
+    history.replaceState({ state: currentState, projectId: currentProjectId }, '');
+
+    // Função getProjectData completa
+    function getProjectData(projectId) {
+      const projects = {
+        project6: {  
+          title: 'Urbanarium',
+          description: 'Urbanarium results from the artistic residency SUSTENTAR for Bienal de Fotografia do Porto 2025. The project explores the interplay between humans and nature in the contemporary city, reflecting on our role within natural systems and our capacity for transformation in the Anthropocene. Based on the Porto BioLab initiative—a future living laboratory of urban ecology—the project examines regeneration, rebalancing, and the potential for harmonious coexistence with nature. Engaging themes of pedagogy, leisure, food, habitat, philosophy, urbanism, and ecology, it reveals the city as both stage and active participant in this dialogue, while its circular interface fosters interaction, observation, and engagement, allowing participants to explore potential and enact transformation.<br><br>The project had the curatorial support from Virgílio Ferreira and Jayne Dyer.<br><br><a href="https://bienal25.bienalfotografiaporto.pt/pt/exposi%C3%A7%C3%B5es/imagin%C3%A1rio-da-transforma%C3%A7%C3%A3o" target="_blank" style="font-weight: bold; color: black; text-decoration: none; border-bottom: 2px solid black; padding-bottom: 2px;">+ info</a>',
+          videoEmbed: true
+        },
+        project1: {
+          title: 'How to build a telescope',
+          description: '\'How to Build a Telescope\' borrows its name from an instruction manual the artist discovered in his family home in an isolated, agricultural region of Portugal. Whether literal or metaphorical, the concept of “how to build a telescope” balances a provocative duality—between playful curiosity and scientific innovation—encouraging the viewer to reflect on the resistance of slower-paced technologies in the face of mass production. Using the rural setting as a visual playground, Trancoso draws on the original book to explore absurdities that reveal the universal in the personal and the cosmic in the mundane.<br><br>(Text by Miranda Verstraete).<br><br><a href="https://www.artbooks.xyz/shop/p/how-to-build-a-telescope" target="_blank" style="font-weight: bold; color: black; text-decoration: none; border-bottom: 2px solid black; padding-bottom: 2px;">Buy book →</a>'
+        },
+        project2: {
+          title: 'Rise of trivial',
+          description: '\'Rise of trivial\' is a multiplatform project about virtual identity and the ways we interact in the internet.',
+          series: [
+            {
+              title: 'Persona',
+              description: '\'Persona\' series uses a term of digital marketing. It questions the platonic facet of the network: although we do not see it, we accept its existence. This creed is represented by tridimensional portraits (in the form of busts), result of the consent of individuals to be photographed in a social context. Through photogrammetric processes it was possible to collect superficial data related to their apparent identity. Seduction is present in the background\'s hue of the busts, which are based on psychological strategies applied to colors used by the social platforms of the internet.'
+            },
+            {
+              title: 'ANN',
+              description: '\'ANN\' stands for Artificial Neural Network. Similarly to the brain it\'s a system that evolves from data analysis, following a learning method that allows the recognition of patterns. \'ANN\' questions the learning process of new artificial intelligence. Atfer the Internet, we ceased looking for the Plato\'s Eden and start building a world of forms in our own image, creating new religions such as Dataism. For what purposes are we creating these huge databases? Can we trust in computer generated data? Can we continue to talk about images as a strictly visual language?',
+              videoEmbed: true
+            },
+            {
+              title: 'Backup',
+              description: '\'Backup\' series reflects the concept of digital documents, not only as vehicles for information but also as testimonies of isolated uses and behaviors in a virtual scenario, using the power of duplication and making it a protocol. On one hand we have figurative representations of behavior patterns; on the other hand we have the paradigm of uncontrolled information related to our digital identity, making the "right to be forgotten on the internet" a truly utopian operation. The liberalism of the information market only leaves us with two choices: to accept everything or to enjoy nothing.'
+            },
+            {
+              title: 'Non Causes',
+              description: 'Non Causes\' is the materialization of paper installations created from ephemeral sculptures of books. Based on the philosophical concept of "Non-things" by Byung-Chul Han, this series explores the new values of the information market that challenge the worth of physical objects in the era of dataism.'
+            },
+            {
+              title: 'Inscription',
+              description: '\'Inscription\' is the outcome of an artistic residency held at Fórum Maia during the Bienal da Maia 2023. Over a two-week period, individuals involved in conceptualizing and producing the Contemporary Art Bienal were photographed and transformed into 3D models showcased as papercraft sculptures. Throughout the five-month duration of the Bienal, these individuals become residents of Fórum Maia, engaging in a spontaneous performance with the exhibition. Visitors can witness and interact with these individuals, broadening their perception of the sculptures and establishing connections between real individuals (through general perception), avatar representations (through this site and the mupis), and the sculptures. By participating in this project, individuals embrace an Inscription as a metaphorical expression of the everyday consent demanded by the web, joining a distinctive club associated with the Bienal.'
+            }
+          ]
+        },
+        project3: {
+          title: 'Glad I spent it with you',
+          description: 'There is no such thing as a manual on reading digital images for humans. "Glad I spent it with you" is a set of images that unveil the basic structure of a digital image. These images are the product of unintentional errors that occured with a broken storage card. Although the files were corrupted, the machine maked the effort on reading the data, producing images that denounce the reading methods of the basic units that constitutes the digital photographs we produce with our cameras. This project intends to reclaim the authorship associated with images whose initial intention of assisting memory transforms into the realization and consecration of the digital image as an ephemeral by-product of contemporary virtual culture.'
+        },
+        project4: {
+          title: 'Narrow Slice',
+          description: '"Isn\'t the human emancipation of Nature really just an outcome of our own Nature?" \'Narrow Slice\' is a documentary photography project that deals with the way human beings position themselves in time and space in relation to Nature. The unease caused by the ambiguity of this query proposes us to revisit the apparent reality, leading to the formulation of new questions.'
+        },
+        project5: {
+          title: 'Collaborations',
+          description: 'Some of the collaborations works I have with Ivan da Silva, Marco Duarte, Barda Collective and others.',
+          series: [
+            {
+              title: 'Membrana',
+              description: 'In collaboration with Barda Collective. \'Membrana\' is an exhibition that explores the convergence of personal and collective experiences. It\'s an immersive showcase that delves into sensory adaptation and the interplay between public and private spaces. Through artful use of color, movement, and sensory elements, everyday life is deconstructed, revealing hidden layers of our reality. As you engage with the exhibition, you\'re invited to question and reflect on the essence of human connection and perception.'
+            },
+            {
+              title: 'PopPorn',
+              description: 'In collaboration with Marco Duarte. \'PopPorn\' is an immersive art experience delving into the visual portrayal of politics in the media. This interactive installation encourages participants to explore the complexities of power, influence, and perception in the realm of TV politics. Using a mouse, visitors can uncover layers of media imagery that depict the interconnectedness of populist politics, television, and desire.'
+            },
+            {
+              title: 'Junta Seca',
+              description: 'In collaboration with Ivan da Silva. \'Junta Seca\' is an exhibition that uncovers the forgotten narratives of nomadic social spaces. Within its confines, remnants of an unnamed, unrecorded group\'s history are explored and reimagined. This exhibition breathes life into discarded artifacts, offering a glimpse into the ever-shifting interplay of time, societal dynamics, and urban landscapes. \'Junta Seca\' is a journey of deterritorialization and reterritorialization, where waste finds new meaning within the city\'s stone walls, revealing the untold stories of the past.'
+            }
+          ]
+        }
+      };
+
+      return projects[projectId] || null;
+    }
+
+    // Animação dos links (mantida do seu código original)
+    const worksOffset = 0;
+    const aboutOffset = 10;
+
+    let mouseX = 0;
+    let mouseY = 0;
+    let time = 0;
+    const speed = 0.005;
+
+    function updateMousePosition(e) {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+
+      const skewAmount = 6;
+
+      const skewX = (mouseX / window.innerWidth - 0.5) * skewAmount;
+      const skewY = (mouseY / window.innerHeight - 0.5) * skewAmount;
+
+      nameText.style.transform = 'skew(' + skewX + 'deg, ' + skewY + 'deg) translateX(' + skewX + 'px) translateY(' + skewY + 'px)';
+    }
+
+    document.addEventListener('mousemove', updateMousePosition);
+
+    function animateLinks() {
+      const worksXMovement = worksOffset + Math.sin(time) * 10 + mouseY / window.innerHeight * 8 - 4;
+      const worksYMovement = worksOffset + Math.cos(time) * 10 + mouseX / window.innerWidth * 8 - 4;
+
+      const aboutXMovement = aboutOffset + Math.sin(time * -1) * 6 + mouseY / window.innerHeight * 4 - 2;
+      const aboutYMovement = aboutOffset + Math.cos(time) * 6 + mouseX / window.innerWidth * 4 - 2;
+
+      worksLink.style.transform = 'translateX(' + worksXMovement + 'px) translateY(' + worksYMovement + 'px) skewX(' + worksYMovement / 2 + 'deg) skewY(' + worksXMovement / 2 + 'deg)';
+      aboutLink.style.transform = 'translateX(' + aboutXMovement + 'px) translateY(' + aboutYMovement + 'px) skewX(' + aboutYMovement / 2 + 'deg) skewY(' + aboutXMovement / 2 + 'deg)';
+      nameText.style.transform = 'translateX(' + worksXMovement + 'px) translateY(' + worksYMovement + 'px)';
+
+      projectLinks.forEach((link, index) => {
+        const projectOffset = index * 10;
+        const projectXMovement = projectOffset + Math.sin(time) * 6 + mouseY / window.innerHeight * 4 - 2;
+        const projectYMovement = projectOffset + Math.cos(time) * 6 + mouseX / window.innerWidth * 4 - 2;
+    
+        link.style.transform = 'translateX(' + projectXMovement + 'px) translateY(' + projectYMovement + 'px) skewX(' + projectYMovement / 10 + 'deg) skewY(' + projectXMovement / -4 + 'deg)';
+      });
+
+      time += speed;
+      requestAnimationFrame(animateLinks);
+    }
+
+    animateLinks();
+  });
+  </script>
 </body>
 </html>
-
