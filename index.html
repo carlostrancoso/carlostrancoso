@@ -5,16 +5,26 @@
   <title>CARLOS TRANCOSO</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&display=swap');
+@import url('./css/general-sans.css');
 
     body {
-      font-family: 'Montserrat', sans-serif;
-      line-height: 1.5;
-      overflow: hidden;
-      margin: 0;
-      padding: 0;
-      animation: backgroundTransition 60s infinite alternate;
-    }
+  font-family: 'IBM Plex Sans', sans-serif;
+  line-height: 1.5;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  animation: backgroundTransition 60s infinite alternate;
+}
+ 
+.text-links a,
+.projects,
+.project-title,
+.text-container h6 {
+  font-family: 'Space Grotesk', sans-serif;
+}
 
     hr {
       border: none;
@@ -29,16 +39,21 @@
       100% { background-color: #f9be13; }
     }
 
-    h1.logo {
-      position: fixed;
-      text-transform: uppercase;
-      top: 5%;
-      left: 4%;
-      transform-origin: top left;
-      font-size: 25px;
-      color: #333;
-      transition: transform 0.5s ease;
-    }
+   h1.logo {
+  position: fixed;
+  top: 0px;
+  left: 25px;
+   font-family: 'GeneralSans-Variable';
+  font-weight: 500;
+  font-size: 21px;
+  /* letter-spacing: -0.02em; */
+  color: #333;
+  transform: none !important;
+  transition: none;
+  z-index: 10;
+  cursor: pointer;
+  text-transform: uppercase;
+}
 
     h1.logo a {
       cursor: default;
@@ -234,14 +249,14 @@
     }
 
     .text-container h5 {
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 400;
       line-height: 2;
     }
 
     .text-container h6 {
       font-size: 15px;
-      font-weight: 400;
+      font-weight: 500;
       line-height: 1.5;
       cursor: default;
     }
@@ -292,7 +307,7 @@
       h1.logo {
         top: 2%;
         left: 5%;
-        font-size: 35px;
+        font-size: 21px;
       }
 
       .text-links {
@@ -333,8 +348,12 @@
       }
 
       .project-title {
-        font-size: 40px;
-      }
+  font-size: 24px;
+  margin: 50px;
+  margin-bottom: 10px;
+  text-align: left;
+  font-weight: 500;
+}
 
       .project-description {
         font-size: 25px;
@@ -355,7 +374,7 @@
       h1.logo {
         top: 1%;
         left: 5%;
-        font-size: 25px;
+        font-size: 18px;
       }
 
       .text-links a {
@@ -423,7 +442,7 @@
 
   <div class="about-content" style="display: none;">
     <div class="text-container">
-      <div style="max-width: 900px;">
+      <div style="max-width: 750px;">
   <strong>Carlos Trancoso</strong> (b. 1989) is a Portuguese visual artist based in Porto. 
   Working across photography, installation and moving image, his practice explores the relationship between technology, ecology and contemporary image culture.
 </br></br>
