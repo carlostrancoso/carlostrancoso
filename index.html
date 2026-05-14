@@ -198,6 +198,7 @@
     .swiper-zoom-container > img,
     .swiper-zoom-container > svg {
       max-height: 600px;
+      cursor: zoom-in;
     }
 
     .swiper-container {
@@ -303,6 +304,68 @@
       background-color: transparent;
     }
 
+    /* ── PREVINE A SELEÇÃO AZUL E O ARRASTO NATIVO DO RATO ── */
+    .swiper-container img,
+    .swiper-lightbox img,
+    .swiper-slide {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    /* ── CSS DO LIGHTBOX FULLSCREEN CORRIGIDO (CENTRALIZADO) ── */
+    #lightbox {
+      display: none; 
+      position: fixed; 
+      inset: 0;
+      background: rgba(0,0,0,.98); 
+      z-index: 2000;
+      align-items: center; 
+      justify-content: center;
+    }
+    #lightbox.active { 
+      display: flex; 
+    }
+    .lightbox-close {
+      position: absolute; 
+      top: 20px; 
+      right: 24px;
+      width: 44px; 
+      height: 44px; 
+      border: none; 
+      background: none;
+      color: white; 
+      font-size: 40px; 
+      cursor: pointer; 
+      z-index: 2100;
+      touch-action: manipulation;
+    }
+    .swiper-lightbox { 
+      width: 100%; 
+      height: 100%; 
+      margin-top: 0; 
+    }
+    .swiper-lightbox .swiper-slide {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+    }
+    .swiper-lightbox .swiper-slide img { 
+      max-width: 95vw; 
+      max-height: 90vh; 
+      object-fit: contain; 
+      cursor: default;
+      margin: auto;
+    }
+    .swiper-lightbox .swiper-button-next,
+    .swiper-lightbox .swiper-button-prev { 
+      color: white; 
+    }
+    
     @media screen and (max-width: 1000px) {
       h1.logo {
         top: 2%;
@@ -505,6 +568,15 @@
     </div>
   </div>
 
+  <div id="lightbox">
+    <button class="lightbox-close" id="lightboxClose">&times;</button>
+    <div class="swiper swiper-lightbox">
+      <div class="swiper-wrapper" id="lightbox-wrapper"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+  </div>
+
   <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
   <script src="./home_script/lib/dat.gui.min.js"></script>
   <script>
@@ -519,6 +591,10 @@
       const closeButton = document.querySelector('.close-button');
       const slideshow = document.querySelector('.slideshow');
       const aboutContent = document.querySelector('.about-content');
+
+      const lightbox = document.getElementById("lightbox");
+      const lightboxWrapper = document.getElementById("lightbox-wrapper");
+      const lightboxClose = document.getElementById("lightboxClose");
 
       const projectSlugMap = {
         project6: 'urbanarium',
@@ -559,19 +635,32 @@
       let currentState = 'home';
       let currentProjectId = null;
       let projectLinksVisible = false;
+      let swiperLightbox = null;
+      let currentProjectImages = [];
 
+      // Ajustado com o atributo draggable="false"
       function buildSlidesHTML(assetConfig) {
         let html = '<div class="swiper-wrapper">';
-
+        
         for (let i = 1; i <= assetConfig.count; i++) {
           const num = i.toString().padStart(2, '0');
           const src = './content/jpg/' + assetConfig.prefix + num + '.' + assetConfig.ext;
           const alt = assetConfig.prefix + num + '.' + assetConfig.ext;
-          html += '<div class="swiper-slide"><div class="swiper-zoom-container"><img src="' + src + '" alt="' + alt + '"></div></div>';
+          
+          html += '<div class="swiper-slide"><div class="swiper-zoom-container"><img src="' + src + '" alt="' + alt + '" data-index="' + (i - 1) + '" draggable="false"></div></div>';
         }
 
         html += '</div><div class="swiper-button-next"></div><div class="swiper-button-prev"></div><div class="swiper-pagination"></div>';
         return html;
+      }
+
+      function getAssetUrls(assetConfig) {
+        let urls = [];
+        for (let i = 1; i <= assetConfig.count; i++) {
+          const num = i.toString().padStart(2, '0');
+          urls.push('./content/jpg/' + assetConfig.prefix + num + '.' + assetConfig.ext);
+        }
+        return urls;
       }
 
       function createSwiper(container) {
@@ -591,6 +680,45 @@
           }
         });
       }
+
+      // Ajustado com o atributo draggable="false"
+      function openLightbox(imagesArray, initialIndex) {
+        if (!imagesArray.length) return;
+        
+        lightboxWrapper.innerHTML = imagesArray.map(imgSrc => 
+          `<div class="swiper-slide"><img src="${imgSrc}" draggable="false"></div>`
+        ).join("");
+        
+        lightbox.classList.add("active");
+        
+        if (swiperLightbox) swiperLightbox.destroy();
+        
+        swiperLightbox = new Swiper(".swiper-lightbox", {
+          initialSlide: parseInt(initialIndex),
+          loop: true,
+          navigation: {
+            nextEl: "#lightbox .swiper-button-next",
+            prevEl: "#lightbox .swiper-button-prev"
+          },
+          keyboard: {
+            enabled: true
+          }
+        });
+      }
+
+      lightboxClose.addEventListener("click", () => {
+        lightbox.classList.remove("active");
+        if (swiperLightbox) {
+          swiperLightbox.destroy();
+          swiperLightbox = null;
+        }
+      });
+
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && lightbox.classList.contains("active")) {
+          lightboxClose.click();
+        }
+      });
 
       function addProjectText(title, description) {
         const titleEl = document.createElement('h2');
@@ -678,6 +806,7 @@
         aboutContent.style.display = 'none';
         document.body.style.overflow = '';
         slideshow.innerHTML = '';
+        currentProjectImages = [];
 
         if (!projectData.series) {
           const swiperContainer = document.createElement('div');
@@ -685,8 +814,16 @@
 
           if (projectAssets[projectId]) {
             swiperContainer.innerHTML = buildSlidesHTML(projectAssets[projectId]);
+            currentProjectImages = getAssetUrls(projectAssets[projectId]);
+            
             slideshow.appendChild(swiperContainer);
             createSwiper(swiperContainer);
+
+            swiperContainer.addEventListener('click', (e) => {
+              if (e.target.tagName === 'IMG' && e.target.dataset.index !== undefined) {
+                openLightbox(currentProjectImages, e.target.dataset.index);
+              }
+            });
           }
 
           if (projectData.title && projectData.description) {
@@ -717,7 +854,15 @@
           const assetConfig = seriesAssets[projectId] && seriesAssets[projectId][series.title];
           if (assetConfig) {
             swiperContainer.innerHTML = buildSlidesHTML(assetConfig);
+            const seriesImages = getAssetUrls(assetConfig);
+            
             seriesContainer.appendChild(swiperContainer);
+
+            swiperContainer.addEventListener('click', (e) => {
+              if (e.target.tagName === 'IMG' && e.target.dataset.index !== undefined) {
+                openLightbox(seriesImages, e.target.dataset.index);
+              }
+            });
           }
 
           const seriesTitle = document.createElement('h2');
