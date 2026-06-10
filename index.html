@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>CARLOS TRANCOSO</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+  <link rel="icon" id="favicon">
   <style>
   @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500&display=swap');
@@ -17,6 +18,7 @@
   margin: 0;
   padding: 0;
   animation: backgroundTransition 60s infinite alternate;
+  animation-delay: 0s;
 }
  
 .text-links a,
@@ -582,6 +584,9 @@
   <script src="./home_script/lib/dat.gui.min.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      // Começar a animação numa posição aleatória
+      const randomOffset = Math.random() * 60; // 60 = duração da animação
+      document.body.style.animationDelay = `-${randomOffset}s`;
       const worksLink = document.querySelector('.works-link');
       const aboutLink = document.querySelector('.about-link');
       const nameText = document.querySelector('.name.logo');
@@ -1075,6 +1080,32 @@
 
       animateLinks();
     });
-  </script>
+const canvas = document.createElement('canvas');
+canvas.width = 64;
+canvas.height = 64;
+const ctx = canvas.getContext('2d');
+
+let angle = 0;
+
+function draw() {
+  ctx.clearRect(0, 0, 64, 64);
+
+  ctx.save();
+  ctx.translate(32, 32);
+  ctx.rotate(angle);
+
+  ctx.fillStyle = '#000';
+  ctx.fillRect(-16, -16, 32, 32);
+
+  ctx.restore();
+
+  document.getElementById('favicon').href = canvas.toDataURL('image/png');
+
+  angle += 0.05;
+  requestAnimationFrame(draw);
+}
+
+draw();
+</script>
 </body>
 </html>
